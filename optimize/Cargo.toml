@@ -1,0 +1,11 @@
+[package]
+name = "optimize"
+version = "0.1.0"
+authors = ["Daniel Persson"]
+
+[dependencies]
+jni = "0.17.0"
+
+[lib]
+name = "optimize"
+crate-type = ["cdylib"]
