@@ -38,7 +38,7 @@ public class JavaRustFFI {
 
     public static void main(String[] args) {
         try {
-            File f = new File("optimize/target/debug/liboptimize.so");
+            File f = new File("optimize/target/debug/optimize.dll");
             System.out.println(JavaRustFFI.getLoadedLibraries(ClassLoader.getSystemClassLoader(), f.getAbsolutePath()));
 
             System.load(f.getAbsolutePath());
