@@ -13,7 +13,6 @@ public class JavaRustFFI {
     public static native void hello();
     public static native byte[] optimize_from_memory(byte[] data);
 
-
     static {
         try {
             LIBRARIES = ClassLoader.class.getDeclaredField("loadedLibraryNames");
@@ -27,19 +26,15 @@ public class JavaRustFFI {
         return libraries.contains(absolutePath);
     }
 
-/*
-    public static String getLibraryPath(String dylib) {
-        System.out.println(mapLibraryName(dylib));
-
-        File f = new File(JavaRustFFI.class.getClassLoader().getResource(mapLibraryName(dylib)).getFile());
-        return f.getParent();
-    }
-*/
-
     public static void main(String[] args) {
         try {
             File f = new File("optimize/target/debug/optimize.dll");
-            System.out.println(JavaRustFFI.getLoadedLibraries(ClassLoader.getSystemClassLoader(), f.getAbsolutePath()));
+            System.out.println(
+                    JavaRustFFI.getLoadedLibraries(
+                            ClassLoader.getSystemClassLoader(),
+                            f.getAbsolutePath()
+                    )
+            );
 
             System.load(f.getAbsolutePath());
 
